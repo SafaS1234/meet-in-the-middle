@@ -67,15 +67,39 @@ double mean(vector<double> num)
 
 }
 
+double mode(vector<double> num)
+{
+    double mode;
+    size_t size = num.size();
+
+    
+
+    return mode;
+}
+
 int main()
 {
     vector<double> num;
     string name;
+    bool swapped;
 
     cout << "Enter the filename: ";
     getline(cin, name);
     
     num = readFile(name);
+    
+    for (size_t i = 0; i < num.size() -1; i++) {
+        swapped = false;
+        for (size_t j = 0; j < num.size() - i - 1; j++) {
+            if (num[j] > num[j + 1]) {
+                swap(num[j], num[j + 1]);
+                swapped = true;
+            }
+        }
+ 
+        if (swapped == false)
+            break;
+    }
 
     cout << "The median of the data set is: " <<median(num)<< "." << endl;
     cout << "The mean of the data set is: " << mean(num) << "." << endl;
