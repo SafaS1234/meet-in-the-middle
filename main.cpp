@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+//#include <cassert>
+//#include "middle.hpp"
 
 using namespace std;
 
@@ -101,8 +103,31 @@ int main()
             break;
     }
 
-    cout << "The median of the data set is: " <<median(num)<< "." << endl;
+    cout << "\nThe median of the data set is: " <<median(num)<< "." << endl;
     cout << "The mean of the data set is: " << mean(num) << "." << endl;
     //cout << "The mode of the data set is: " << mode(num) << "." << endl;
+
+    //tests
+    cout << "\n\nTests" << endl;
+    cout << "\nWhile using data.txt" << endl;
+    cout << "Expected ans = calculated ans" << endl;
+    cout << "Median:   11 = " << median(num) << endl;
+    cout << "Mean:     34 = " << mean(num) << endl;
+
+    cout << "\nWhile using mix.txt" << endl;
+    cout << "Expected ans = calculated ans" << endl;
+    cout << "Median:   11 = " << median(num) << endl;
+    cout << "Mean:     34 = " << mean(num) << endl;
+
+    cout << "\nWhile using data2.txt" << endl;
+    cout << "Expected ans = calculated ans" << endl;
+    cout << "Median:   55 = " << median(num) << endl;
+    cout << "Mean:     57 = " << mean(num) << endl;
+
+    cout << "\nWhile using mix2.txt" << endl;
+    cout << "Expected ans = calculated ans" << endl;
+    cout << "Median:   55 = " << median(num) << endl;
+    cout << "Mean:     57 = " << mean(num) << endl;
+
 }
 
