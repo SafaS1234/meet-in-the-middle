@@ -1,8 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-//#include <cassert>
-//#include "middle.hpp"
 
 using namespace std;
 
@@ -72,10 +70,29 @@ double mean(vector<double> num)
 double mode(vector<double> num)
 {
     double mode;
+    int count = 0;
+    int max = 0;
     size_t size = num.size();
 
-    
+    for (size_t i = 0; i < size; i++)
+    {
+        if(num[i] == num[i - 1])
+        {
+            ++count;
+        }
 
+        else
+        {
+            if(count > max)
+            {
+                max = count;
+                mode = num[i -1];
+            }
+
+            count = 1;
+        }
+    }
+    
     return mode;
 }
 
@@ -103,31 +120,33 @@ int main()
             break;
     }
 
-    cout << "\nThe median of the data set is: " <<median(num)<< "." << endl;
+    cout << "\nThe median of the data set is: "<<median(num)<<"."<< endl;
     cout << "The mean of the data set is: " << mean(num) << "." << endl;
-    //cout << "The mode of the data set is: " << mode(num) << "." << endl;
+    cout << "The mode of the data set is: " << mode(num) << "." << endl;
 
     //tests
     cout << "\n\nTests" << endl;
-    cout << "\nWhile using data.txt" << endl;
-    cout << "Expected ans = calculated ans" << endl;
-    cout << "Median:   11 = " << median(num) << endl;
-    cout << "Mean:     34 = " << mean(num) << endl;
 
-    cout << "\nWhile using mix.txt" << endl;
-    cout << "Expected ans = calculated ans" << endl;
-    cout << "Median:   11 = " << median(num) << endl;
-    cout << "Mean:     34 = " << mean(num) << endl;
+    //data1.txt
+    cout << "\nWhile using data1.txt" << endl;
+    cout << "Expected ans    = calculated ans" << endl;
+    cout << "Median:   10    = " << median(num) << endl;
+    cout << "Mean:     31.25 = " << mean(num) << endl;
+    cout << "Mode:      1    = " << mode(num) << endl;
 
+    //data2.txt
     cout << "\nWhile using data2.txt" << endl;
-    cout << "Expected ans = calculated ans" << endl;
-    cout << "Median:   55 = " << median(num) << endl;
-    cout << "Mean:     57 = " << mean(num) << endl;
+    cout << "Expected ans    = calculated ans" << endl;
+    cout << "Median:   55    = " << median(num) << endl;
+    cout << "Mean:     56.75 = " << mean(num) << endl;
+    cout << "Mode:     55    = " << mode(num) << endl;
 
-    cout << "\nWhile using mix2.txt" << endl;
-    cout << "Expected ans = calculated ans" << endl;
-    cout << "Median:   55 = " << median(num) << endl;
-    cout << "Mean:     57 = " << mean(num) << endl;
-
+    //data3.txt
+    cout << "\nWhile using data3.txt" << endl;
+    cout << "Expected ans      = calculated ans" << endl;
+    cout << "Median:   45      = " << median(num) << endl;
+    cout << "Mean:     36.9333 = " << mean(num) << endl;
+    cout << "Mode:     45      = " << mode(num) << endl;
+    
 }
 
